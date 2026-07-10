@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In | EcomLinked Free Training</title>
+  <link rel="icon" type="image/png" href="ecomlinked-logo.png">
+
+  <!-- ============================================================
+       TIKTOK PIXEL: this is what tells TikTok a registration happened.
+       1) Paste your TikTok BASE pixel code below (TikTok Events Manager > Install Pixel > Install Manually).
+       2) Then delete the // in front of ttq.track('CompleteRegistration'); so it fires.
+       3) In WebinarNinja: Webinar Settings > Thank You Page > redirect to THIS page's URL.
+       ============================================================ -->
+  <script>
+    // 1) PASTE YOUR TIKTOK BASE PIXEL CODE HERE
+
+    // 2) Uncomment the next line once your base pixel is in:
+    // ttq.track('CompleteRegistration');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { inter: ['Inter','sans-serif'] },
+      colors: {
+        dark: { DEFAULT: '#050505', secondary: '#0A0A0A' },
+        surface: { DEFAULT: '#111111', secondary: '#161616' },
+        slate: { 900:'#F5F5F5', 500:'#A1A1AA', 400:'#71717A', 200:'#27272A' },
+        accent: { purple:'#A855F7', 'purple-hover':'#9333EA', 'purple-light':'#C084FC', 'purple-dark':'#7C3AED' }
+      }
+    } } }
+  </script>
+  <style>
+    :root{ --bg-darkest:#050505; --bg-dark:#0A0A0A; --bg-surface:#111111; --accent-purple:#A855F7; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+    body{background:var(--bg-dark);color:#F5F5F5;min-height:100vh;overflow-x:hidden}
+    .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+    .btn-glow{background:linear-gradient(135deg,#A855F7 0%,#7C3AED 100%);color:#fff;transition:all .2s ease;box-shadow:0 2px 4px rgba(168,85,247,.3),0 0 24px rgba(168,85,247,.15)}
+    .btn-glow:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 6px 24px rgba(168,85,247,.45),0 0 60px rgba(168,85,247,.2)}
+  </style>
+</head>
+<body>
+  <div class="glow" style="width:520px;height:520px;background:rgba(168,85,247,.14);top:-160px;left:50%;transform:translateX(-50%)"></div>
+
+  <main class="relative z-10 max-w-xl mx-auto px-5 py-10 md:py-16 flex flex-col items-center">
+
+    <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-9 h-9 rounded-lg object-contain mb-8">
+
+    <!-- Confirmation card -->
+    <div class="w-full rounded-2xl border border-white/[0.07] p-7 md:p-9 text-center" style="background:linear-gradient(180deg,#141019,#0b0b0f)">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background:rgba(168,85,247,.14);border:1px solid rgba(192,132,252,.35)">
+        <i class="fa-solid fa-check text-accent-purple-light text-2xl"></i>
+      </div>
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-widest text-accent-purple-light mb-4" style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.3)">Seat confirmed</span>
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">You're in.</h1>
+      <p class="text-slate-500 text-base mb-5">Your seat for the free training is saved.</p>
+
+      <p class="text-lg md:text-xl font-bold mb-4"><span class="js-webinar-date">TBA</span></p>
+
+      <div class="flex items-center justify-center gap-2 mb-6">
+        <div class="w-16 rounded-lg border border-white/[0.06] py-2 text-center" style="background:var(--bg-surface)"><p class="text-xl font-extrabold text-accent-purple-light cd-days">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Days</p></div>
+        <div class="w-16 rounded-lg border border-white/[0.06] py-2 text-center" style="background:var(--bg-surface)"><p class="text-xl font-extrabold text-accent-purple-light cd-hours">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Hrs</p></div>
+        <div class="w-16 rounded-lg border border-white/[0.06] py-2 text-center" style="background:var(--bg-surface)"><p class="text-xl font-extrabold text-accent-purple-light cd-mins">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Min</p></div>
+        <div class="w-16 rounded-lg border border-white/[0.06] py-2 text-center" style="background:var(--bg-surface)"><p class="text-xl font-extrabold text-accent-purple-light cd-secs">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Sec</p></div>
+      </div>
+
+      <a id="calBtn" download="EcomLinked-Webinar.ics" class="btn-glow inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold">
+        <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+      </a>
+    </div>
+
+    <!-- Lock in your spot: no-show killers -->
+    <div class="w-full mt-6 rounded-2xl border border-white/[0.07] p-6 md:p-8" style="background:var(--bg-surface)">
+      <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-5">Do these 3 things now</p>
+
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style="background:rgba(168,85,247,.12)"><i class="fa-regular fa-calendar-check text-accent-purple-light text-sm"></i></div>
+        <div>
+          <p class="font-bold mb-0.5">Add it to your calendar</p>
+          <p class="text-slate-500 text-sm">One tap above. Block the full hour now so nothing steals the spot.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style="background:rgba(168,85,247,.12)"><i class="fa-solid fa-mobile-screen-button text-accent-purple-light text-sm"></i></div>
+        <div>
+          <p class="font-bold mb-0.5">Check your phone</p>
+          <p class="text-slate-500 text-sm">We just texted you. Save the number so your join link and reminders actually reach you.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style="background:rgba(168,85,247,.12)"><i class="fa-solid fa-tower-broadcast text-accent-purple-light text-sm"></i></div>
+        <div>
+          <p class="font-bold mb-0.5">Show up live</p>
+          <p class="text-slate-500 text-sm">The funded cohort spots are claimed live, on the call, in the order people show up. The replay can't get you one.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-slate-400 text-xs text-center mt-6 max-w-md">Didn't get a text? Check the number you entered, or email <a href="mailto:team@ecomlinkedfunding.com" class="text-accent-purple-light">team@ecomlinkedfunding.com</a>. Results vary and are not guaranteed.</p>
+  </main>
+
+  <script>
+    /* SET THE SAME WEBINAR DATE YOU USE ON THE LANDING PAGE. -04:00 = EST in summer, -05:00 in winter. */
+    var WEBINAR_DATE = new Date("2026-07-16T19:00:00-04:00");
+    var DURATION_MIN = 90;
+
+    (function(){
+      var dateStr = WEBINAR_DATE.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'long',month:'long',day:'numeric'}) + ' at ' + WEBINAR_DATE.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}) + ' EST';
+      document.querySelectorAll('.js-webinar-date').forEach(function(el){ el.textContent = dateStr; });
+
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick(){
+        var diff = Math.max(0, WEBINAR_DATE - new Date());
+        var d=Math.floor(diff/86400000); diff-=d*86400000;
+        var h=Math.floor(diff/3600000); diff-=h*3600000;
+        var m=Math.floor(diff/60000); diff-=m*60000;
+        var s=Math.floor(diff/1000);
+        document.querySelectorAll('.cd-days').forEach(function(e){e.textContent=pad(d)});
+        document.querySelectorAll('.cd-hours').forEach(function(e){e.textContent=pad(h)});
+        document.querySelectorAll('.cd-mins').forEach(function(e){e.textContent=pad(m)});
+        document.querySelectorAll('.cd-secs').forEach(function(e){e.textContent=pad(s)});
+      }
+      tick(); setInterval(tick,1000);
+
+      function formatIcsDate(date) {
+        var parts = Object.fromEntries(
+          new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/New_York',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+          }).formatToParts(date).map(function(part) {
+            return [part.type, part.value];
+          })
+        );
+        return parts.year + parts.month + parts.day + 'T' + parts.hour + parts.minute + parts.second;
+      }
+
+      function formatGoogleCalendarDate(date) {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      }
+
+      function buildIcsContent(date, durationMinutes) {
+        var start = formatIcsDate(date);
+        var end = formatIcsDate(new Date(date.getTime() + durationMinutes * 60000));
+        return [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//EcomLinked//Webinar//EN',
+          'CALSCALE:GREGORIAN',
+          'METHOD:PUBLISH',
+          'BEGIN:VEVENT',
+          'DTSTART;TZID=America/New_York:' + start,
+          'DTEND;TZID=America/New_York:' + end,
+          'SUMMARY:EcomLinked Free Training',
+          'DESCRIPTION:Your free EcomLinked funded store training. Your join link will arrive by email and text.',
+          'BEGIN:VALARM',
+          'TRIGGER:-PT15M',
+          'ACTION:DISPLAY',
+          'DESCRIPTION:EcomLinked Free Training starts in 15 minutes',
+          'END:VALARM',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+      }
+
+      function buildGoogleCalendarUrl(date, durationMinutes) {
+        var endDate = new Date(date.getTime() + durationMinutes * 60000);
+        var start = formatGoogleCalendarDate(date);
+        var end = formatGoogleCalendarDate(endDate);
+        var params = new URLSearchParams({
+          action: 'TEMPLATE',
+          text: 'EcomLinked Free Training',
+          dates: start + '/' + end,
+          details: 'Your free EcomLinked funded store training. Your join link will arrive by email and text.',
+          location: 'Online'
+        });
+        return 'https://calendar.google.com/calendar/render?' + params.toString();
+      }
+
+      function isMobileDevice() {
+        if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
+          return navigator.userAgentData.mobile;
+        }
+        return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
+      }
+
+      var b = document.getElementById('calBtn');
+      if (b) {
+        if (isMobileDevice()) {
+          var icsBlob = new Blob([buildIcsContent(WEBINAR_DATE, DURATION_MIN)], { type: 'text/calendar;charset=utf-8' });
+          b.href = URL.createObjectURL(icsBlob);
+          b.setAttribute('download', 'EcomLinked-Webinar.ics');
+          b.removeAttribute('target');
+          b.removeAttribute('rel');
+        } else {
+          b.href = buildGoogleCalendarUrl(WEBINAR_DATE, DURATION_MIN);
+          b.removeAttribute('download');
+          b.setAttribute('target', '_blank');
+          b.setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

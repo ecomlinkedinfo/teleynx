@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | EcomLinked</title>
+  <meta name="description" content="Privacy Policy for EcomLinked. Learn how we collect, use, and share information for webinar registration, transactional reminders, and permitted marketing.">
+  <link rel="icon" type="image/png" href="ecomlinked-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'sans-serif'] },
+          colors: {
+            dark: { DEFAULT: '#050505', secondary: '#0A0A0A', tertiary: '#1A1A1A' },
+            surface: { DEFAULT: '#111111', secondary: '#161616', tertiary: '#1E1E1E' },
+            slate: { 900: '#F5F5F5', 500: '#A1A1AA', 400: '#71717A', 200: '#27272A', 100: '#1C1C1C' },
+            accent: { purple: '#A855F7', 'purple-hover': '#9333EA', 'purple-light': '#C084FC', 'purple-dark': '#7C3AED' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-darkest: #050505;
+      --bg-dark: #0A0A0A;
+      --bg-surface: #111111;
+      --bg-elevated: #161616;
+      --text-primary: #F5F5F5;
+      --text-secondary: #A1A1AA;
+      --text-muted: #71717A;
+      --accent-purple: #A855F7;
+      --accent-purple-hover: #9333EA;
+      --accent-purple-light: #C084FC;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-medium: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(168,85,247,0.12), transparent 34%),
+        radial-gradient(circle at 80% 0%, rgba(124,58,237,0.08), transparent 22%),
+        var(--bg-dark);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+    .js .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+    .fade-up.in { opacity: 1; transform: none; }
+    .dot-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(168,85,247,0.04) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .soft-card {
+      background: linear-gradient(180deg, rgba(17,17,17,0.96) 0%, rgba(10,10,10,0.98) 100%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+      backdrop-filter: blur(10px);
+    }
+    .soft-card-2 {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(168,85,247,0.25), 0 0 24px rgba(168,85,247,0.12);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(168,85,247,0.35), 0 0 60px rgba(168,85,247,0.18);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(192,132,252,0.3);
+      background: rgba(168,85,247,0.08);
+    }
+    *:focus-visible {
+      outline: 2px solid var(--accent-purple);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-40 border-b border-white/[0.06]" style="background: rgba(5,5,5,0.86); backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto px-5 h-16 md:h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 md:gap-3" aria-label="EcomLinked Home">
+        <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-8 h-8 rounded-lg object-contain">
+        <span class="font-extrabold text-base md:text-lg tracking-tight text-slate-900">EcomLinked</span>
+      </a>
+      <a href="index.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg btn-secondary text-sm font-semibold">
+        <i class="fa-solid fa-arrow-left text-xs"></i> Back to webinar
+      </a>
+    </div>
+  </header>
+
+  <main class="relative overflow-hidden">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="absolute top-12 left-8 w-72 h-72 rounded-full blur-[120px] pointer-events-none" style="background: rgba(168,85,247,0.10);"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-[140px] pointer-events-none" style="background: rgba(124,58,237,0.06);"></div>
+
+    <section class="py-14 md:py-20 relative z-10">
+      <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center mb-8 md:mb-10">
+          <div class="fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-purple/20 mb-5" style="background: rgba(168,85,247,0.08);">
+            <i class="fa-solid fa-shield-halved text-accent-purple-light text-sm"></i>
+            <span class="text-[11px] md:text-xs font-semibold text-accent-purple-light tracking-wide uppercase">Privacy Policy</span>
+          </div>
+          <h1 class="fade-up text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">How we use your information</h1>
+          <p class="fade-up mt-4 text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
+            This policy applies to EcomLinked and explains how we collect and use information for our webinar registration, transactional reminders, education, marketing where permitted, and funding-related programs.
+          </p>
+          <p class="fade-up mt-3 text-sm text-slate-400">Effective date: July 2, 2026</p>
+        </div>
+
+        <div class="grid gap-5 md:gap-6">
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">What we collect</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              When you register for our webinar, request information, or interact with our site, we may collect:
+            </p>
+            <ul class="space-y-3 text-sm md:text-base text-slate-500 leading-relaxed">
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Name, email address, phone number, and any registration details you submit.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Business or funding-related information you choose to provide.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Device, browser, IP address, approximate location, and interaction data collected by cookies or pixels.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Event attendance, page views, clicks, form submissions, and ad engagement data.</span></li>
+            </ul>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">How we use it</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="rounded-2xl border border-white/[0.06] p-4 md:p-5" style="background: rgba(255,255,255,0.02);">
+                <p class="text-sm font-semibold text-slate-900 mb-2">Registration and access</p>
+                <p class="text-sm text-slate-500 leading-relaxed">To confirm your registration, deliver event access, and manage webinar participation.</p>
+              </div>
+              <div class="rounded-2xl border border-white/[0.06] p-4 md:p-5" style="background: rgba(255,255,255,0.02);">
+                <p class="text-sm font-semibold text-slate-900 mb-2">Email and transactional SMS reminders</p>
+                <p class="text-sm text-slate-500 leading-relaxed">To send webinar confirmation, reminders, access updates, support messages, replay availability notices, and other service-related communications.</p>
+              </div>
+              <div class="rounded-2xl border border-white/[0.06] p-4 md:p-5" style="background: rgba(255,255,255,0.02);">
+                <p class="text-sm font-semibold text-slate-900 mb-2">Marketing and offers</p>
+                <p class="text-sm text-slate-500 leading-relaxed">To share webinar updates, educational content, and information about our program by email, ads, and SMS only where permitted and, for promotional SMS, only where separate SMS marketing consent has been provided.</p>
+              </div>
+              <div class="rounded-2xl border border-white/[0.06] p-4 md:p-5" style="background: rgba(255,255,255,0.02);">
+                <p class="text-sm font-semibold text-slate-900 mb-2">Improvement and security</p>
+                <p class="text-sm text-slate-500 leading-relaxed">To analyze site performance, protect our systems, and improve user experience.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">SMS and text consent</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              Providing your phone number during webinar registration is optional. If you provide your phone number and submit the registration form, you consent to receive transactional SMS messages from EcomLinked related to your webinar registration, including confirmation, reminders, access updates, support, and replay availability. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, and reply HELP for help.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Marketing or promotional text messages may only be sent where you have separately provided promotional SMS consent, such as by checking an optional, unchecked promotional SMS consent box. Transactional webinar SMS consent and promotional SMS consent are treated separately.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Cookies and tracking pixels</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              We use cookies, pixels, tags, and similar technologies to understand visitor behavior, measure campaign performance, and improve our advertising. This includes the TikTok pixel and similar conversion tracking tools.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              These tools may collect event data such as page visits, clicks, form submissions, and conversions. You can manage cookies through your browser settings, but some features may not work properly without them.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Third parties and processors</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              We may share information with service providers that help us operate our business, including WebinarNinja for webinar registration and delivery, TikTok for advertising and conversion tracking, and our email and SMS provider for messaging and automation.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We may also use hosting, analytics, security, support, and payment processing partners as needed to run the site and our programs. These providers are used to operate our services and are not authorized to use your mobile phone number or SMS opt-in consent for their own marketing.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Data sharing</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              We do not sell your personal information in the ordinary sense. We may share information with processors, business partners, legal authorities when required, and acquirers in the event of a merger, reorganization, or sale of assets. We may also share aggregated or deidentified information that does not reasonably identify you.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We do not sell, rent, or share your mobile phone number or SMS opt-in consent with third parties or affiliates for their marketing or promotional purposes.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Security</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We use reasonable administrative, technical, and physical safeguards to protect personal information. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Your rights</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Depending on your location, you may have rights to access, correct, delete, or restrict the use of your data, and to withdraw consent where applicable. To make a request, contact us using the information below. Rights may depend on the laws of Delaware.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Children under 18</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Our site and services are not intended for anyone under 18. We do not knowingly collect personal information from children under 18.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Changes to this policy</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We may update this policy from time to time. The revised version will be posted on this page with a new effective date, and continued use of the site means you accept the updated policy.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Contact</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              If you have questions about this policy or how we handle your data, contact us at <a href="mailto:team@ecomlinkedfunding.com" class="text-accent-purple-light font-semibold">team@ecomlinkedfunding.com</a>.
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/[0.06] py-10 md:py-12 relative z-10" style="background: var(--bg-darkest);">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-2xl">EcomLinked legal pages.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="terms-of-service.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Terms</a>
+        <a href="earnings-disclaimer.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Earnings Disclaimer</a>
+        <a href="index.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('DOMContentLoaded', function() {
+      const fades = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) {
+        fades.forEach(function(el) { el.classList.add('in'); });
+        return;
+      }
+      const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      fades.forEach(function(el) { io.observe(el); });
+    });
+  </script>
+</body>
+</html>

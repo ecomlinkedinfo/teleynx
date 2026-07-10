@@ -1,0 +1,1285 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcomLinked | Free Training: Launch a Funded Shopify Store</title>
+  <meta name="description" content="Free live training. See how we cover up to 90% of what it costs to launch your first Shopify store. Save your seat.">
+  <link rel="icon" type="image/png" href="ecomlinked-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://my.webinarninja.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    /******************************************************************
+     * ECOMLINKED REGISTRATION CONFIG
+     *
+     * FORM_MODE:
+     *   "test" = reviewer/test mode. Valid forms are logged to Google
+     *            Sheets if the endpoint is available, then the visitor
+     *            always continues to the thank-you page.
+     *   "api"  = live mode. The form must register through the Google
+     *            Apps Script endpoint. If it fails, the existing fallback
+     *            WebinarNinja link is shown.
+     ******************************************************************/
+    window.ECOMLINKED_FORM_CONFIG = {
+      FORM_MODE: 'test',
+      GOOGLE_SCRIPT_ENDPOINT: 'https://script.google.com/macros/s/AKfycbwjR-AKZRd61yVwmSfdE1dS52VLG6Mju_h41JZw7Ork3d5ksRUPC0gA1Uk4X4__JaDk/exec',
+      WEBINAR_FALLBACK_URL: 'https://my.webinarninja.com/embedding-form/10555',
+      WEBINAR_TITLE: 'Webinar',
+      THANK_YOU_URL: 'thank-you'
+    };
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'sans-serif'] },
+          colors: {
+            dark: { DEFAULT: '#050505', secondary: '#0A0A0A', tertiary: '#1A1A1A' },
+            surface: { DEFAULT: '#111111', secondary: '#161616', tertiary: '#1E1E1E' },
+            light: { DEFAULT: '#0A0A0A', secondary: '#111111' },
+            slate: { 900: '#F5F5F5', 500: '#A1A1AA', 400: '#71717A', 200: '#27272A', 100: '#1C1C1C' },
+            accent: { purple: '#A855F7', 'purple-hover': '#9333EA', 'purple-light': '#C084FC', 'purple-dark': '#7C3AED', 'purple-soft': '#A78BFA' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-darkest: #050505;
+      --bg-dark: #0A0A0A;
+      --bg-surface: #111111;
+      --bg-elevated: #161616;
+      --text-primary: #F5F5F5;
+      --text-secondary: #A1A1AA;
+      --text-muted: #71717A;
+      --accent-purple: #A855F7;
+      --accent-purple-hover: #9333EA;
+      --accent-purple-light: #C084FC;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-medium: rgba(255,255,255,0.1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; max-width: 100%; }
+    body { background: var(--bg-dark); color: var(--text-primary); overflow-x: hidden; max-width: 100%; }
+    .dot-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(168,85,247,0.04) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .site-header {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+    }
+    .site-header.hidden-up { transform: translateY(-100%); }
+    .site-header.scrolled {
+      background: rgba(10,10,13,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+    }
+    .js .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+    .fade-up.in { opacity: 1; transform: none; }
+    .faq-trigger { list-style: none; cursor: pointer; }
+    .faq-trigger::-webkit-details-marker { display: none; }
+    .faq-answer { display: block; }
+    .faq-icon { transition: transform 0.15s ease; }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .btn-primary {
+      background: var(--accent-purple);
+      color: #fff;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(168,85,247,0.3), 0 0 20px rgba(168,85,247,0.1);
+    }
+    .btn-primary:hover {
+      background: var(--accent-purple-hover);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 4px 20px rgba(168,85,247,0.4), 0 0 40px rgba(168,85,247,0.15);
+    }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+    .btn-glow {
+      background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);
+      color: #fff;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(168,85,247,0.3), 0 0 24px rgba(168,85,247,0.15);
+    }
+    .btn-glow:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 6px 24px rgba(168,85,247,0.45), 0 0 60px rgba(168,85,247,0.2);
+    }
+    .btn-glow:active { transform: translateY(0) scale(0.99); }
+    .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(168,85,247,0.08); border-color: rgba(168,85,247,0.15); }
+    .form-input {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border-medium);
+      background: var(--bg-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--text-primary);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px rgba(168,85,247,0.15);
+    }
+    .form-input::placeholder { color: #52525B; }
+    .mobile-cta {
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-cta.visible { transform: translateY(0); }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 25s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-bar {
+      background: linear-gradient(90deg, var(--accent-purple) 0%, var(--accent-purple-light) 50%, var(--accent-purple) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease infinite;
+    }
+    @keyframes floatGlow {
+      0%, 100% { opacity: 0.4; transform: translate(0, 0) scale(1); }
+      50% { opacity: 0.7; transform: translate(10px, -10px) scale(1.05); }
+    }
+    .float-glow { animation: floatGlow 6s ease-in-out infinite; }
+    .counter-num {
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+    }
+    .form-glow { position: relative; }
+    .form-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 1.1rem;
+      background: linear-gradient(135deg, rgba(168,85,247,0.3), transparent 40%, transparent 60%, rgba(124,58,237,0.3));
+      z-index: -1;
+      opacity: 0.6;
+    }
+    .webinar-wrapper {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(192,132,252,0.35);
+      box-shadow:
+        0 25px 50px -12px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(168,85,247,0.18),
+        0 0 44px rgba(168,85,247,0.28),
+        0 0 90px rgba(124,58,237,0.16);
+      position: relative;
+    }
+    @media (max-width: 767px) {
+      .webinar-wrapper {
+        width: calc(100% - 12px);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .webinar-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(135deg, rgba(192,132,252,0.28), transparent 28%, transparent 68%, rgba(168,85,247,0.24)),
+        radial-gradient(circle at 18% 12%, rgba(192,132,252,0.18), transparent 34%),
+        radial-gradient(circle at 82% 88%, rgba(124,58,237,0.2), transparent 32%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .webinar-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: calc(1rem - 1px);
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+      z-index: 3;
+    }
+    @keyframes embedGlow {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.6; }
+    }
+    .embed-glow-1 {
+      position: absolute;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(168,85,247,0.35) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: -1;
+      animation: embedGlow 5s ease-in-out infinite;
+    }
+    .embed-glow-2 {
+      position: absolute;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: -1;
+      animation: embedGlow 5s ease-in-out infinite 2.5s;
+    }
+    .embed-glow-3 {
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(192,132,252,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: -1;
+      animation: embedGlow 7s ease-in-out infinite 1s;
+    }
+    *:focus-visible {
+      outline: 2px solid var(--accent-purple);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-up { opacity: 1; transform: none; }
+      .marquee-track { animation: none; }
+      .embed-glow-1, .embed-glow-2, .embed-glow-3 { animation: none; opacity: 0.4; }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
+    .toast {
+      position: fixed; bottom: 110px; left: 50%; transform: translateX(-50%) translateY(20px);
+      opacity: 0; transition: all 0.3s ease; z-index: 200;
+      pointer-events: none; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    @keyframes formPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); }
+      50% { box-shadow: 0 0 0 8px rgba(168,85,247,0.15); }
+    }
+    .form-highlight { animation: formPulse 0.8s ease 2; }
+    .sms-note {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 7px;
+      width: calc(100% - 36px);
+      max-width: 360px;
+      margin: 12px auto 0;
+      padding: 0 6px;
+      font-size: 10px;
+      line-height: 1.35;
+      color: #71717A;
+      text-align: left;
+      cursor: pointer;
+    }
+    .sms-note input {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: var(--accent-purple);
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+    .sms-note a { color: var(--accent-purple-light); text-decoration: underline; font-weight: 600; text-shadow: 0 0 10px rgba(192,132,252,0.26); }
+    .sms-note a:hover, .sms-note a:focus-visible { color: #fff; }
+    @media (min-width: 768px) {
+      .sms-note { font-size: 11px; }
+    }
+    .promo-sms-optin {
+      display: block;
+      width: calc(100% - 36px);
+      max-width: 336px;
+      margin: 12px auto 0;
+      padding: 2px 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #CFCFD6;
+      font-size: 10px;
+      line-height: 1.3;
+      text-align: center;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+    .promo-sms-optin:hover {
+      color: #E4E4E7;
+    }
+    .promo-sms-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+    .promo-sms-title input {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: var(--accent-purple);
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+    .promo-sms-optin strong {
+      display: block;
+      color: #F5F5F5;
+      font-size: 11px;
+      line-height: 1.15;
+      font-weight: 750;
+      margin-bottom: 1px;
+    }
+    .promo-sms-subtitle {
+      display: block;
+      color: #A1A1AA;
+      margin-top: 2px;
+    }
+    .wn-form { padding: 20px 26px 22px; }
+    .wn-form-title { color: #fff; font-size: 24px; font-weight: 700; text-align: center; letter-spacing: -0.01em; }
+    .wn-form-sub { color: #fff; font-size: 15px; font-weight: 500; text-align: center; margin-top: 16px; }
+    .wn-form-inner { max-width: 360px; margin: 32px auto 0; }
+    .wn-input {
+      width: 100%; background: #fff; color: #1F2937;
+      border: 1px solid #E5E7EB; border-radius: 6px;
+      padding: 11px 15px; font-family: 'Inter', sans-serif; font-size: 15px;
+      -webkit-appearance: none;
+    }
+    .wn-input::placeholder { color: #9CA3AF; }
+    .wn-input:focus { outline: none; border-color: var(--accent-purple); box-shadow: 0 0 0 3px rgba(168,85,247,0.18); }
+    @media (max-width: 767px) {
+      .wn-input {
+        font-size: 16px;
+      }
+    }
+    .wn-field-gap { margin-top: 28px; }
+    .wn-phone-row { display: flex; }
+    .wn-phone-row select.wn-input { width: 78px; flex: 0 0 78px; border-radius: 6px 0 0 6px; border-right: none; color: #374151; padding: 11px 6px 11px 12px; }
+    .wn-phone-row input.wn-input { border-radius: 0 6px 6px 0; flex: 1; min-width: 0; }
+    .wn-btn {
+      display: block; width: 100%; background: #7768E5; color: #fff;
+      border: 0; border-radius: 9999px; padding: 9px 16px; margin-top: 24px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .wn-btn:hover { background: #6A5AD8; transform: translateY(-1px); }
+    .wn-btn:disabled { opacity: 0.7; cursor: default; transform: none; }
+    .wn-hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .wn-form-msg { color: #f87171; font-size: 12px; line-height: 1.5; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header fixed top-0 left-0 right-0 z-50" id="siteHeader">
+    <div class="max-w-7xl mx-auto px-5 h-14 md:h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 relative z-10" aria-label="EcomLinked Home">
+        <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-7 h-7 md:w-8 md:h-8 rounded-lg object-contain">
+        <span class="font-extrabold text-base md:text-lg tracking-tight text-slate-900">EcomLinked</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <a href="#how-it-works" class="text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors">How It Works</a>
+        <a href="#results" class="text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors">Results</a>
+        <a href="#faq" class="text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors">FAQ</a>
+      </nav>
+      <button onclick="scrollToForm()" class="btn-primary px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-sm font-semibold relative z-10">
+        Save My Free Seat
+      </button>
+    </div>
+  </header>
+
+  <section class="relative min-h-screen flex items-center pt-14 md:pt-16 overflow-hidden" aria-labelledby="hero-heading">
+    <div class="hero-glow top-1/4 right-1/4 float-glow"></div>
+    <div class="absolute top-20 left-10 w-60 h-60 md:w-72 md:h-72 bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none float-glow" style="animation-delay: -3s;"></div>
+    <div class="max-w-7xl mx-auto px-5 w-full py-16 md:py-0">
+      <div class="grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+        <div class="md:col-span-3 relative z-10">
+          <div class="fade-up flex justify-center md:justify-start">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-purple/20 mb-5 md:mb-6" style="background: rgba(168,85,247,0.08);">
+              <span class="w-2 h-2 rounded-full bg-accent-purple-light animate-pulse"></span>
+              <span class="text-[11px] md:text-xs font-semibold text-accent-purple-light tracking-wide uppercase">The Funded Store Masterclass</span>
+            </div>
+          </div>
+          <h1 id="hero-heading" class="fade-up text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.15] text-slate-900 mb-5 md:mb-6 text-center md:text-left max-w-[22ch] md:max-w-none mx-auto md:mx-0">
+            How to Launch a Funded Shopify Store with Up to <span class="bg-gradient-to-r from-accent-purple to-accent-purple-light bg-clip-text text-transparent">90%</span> of the Cost Covered
+          </h1>
+          <p class="fade-up text-base md:text-xl text-slate-500 leading-relaxed mb-7 md:mb-8 max-w-xl text-center md:text-left mx-auto md:mx-0">
+            See exactly how we fund up to 90% of your store launch, product research, tools, ad spend, shipping, etc. <span class="md:text-accent-purple-light md:font-semibold">If it's a business expense, it's covered.</span>
+          </p>
+          <div class="fade-up md:hidden mb-6" id="heroRegister">
+            <p class="text-center text-sm text-slate-900 font-semibold mb-3"><span class="js-webinar-date">TBA</span></p>
+            <div class="relative -mx-3">
+              <div class="embed-glow-1" style="top: -40px; left: -30px;"></div>
+              <div class="embed-glow-2" style="bottom: -30px; right: -20px;"></div>
+              <div class="embed-glow-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+              <div class="webinar-wrapper">
+                <div class="wn-form" data-wn-form>
+                  <p class="wn-form-title">Register for <span class="js-webinar-title">Webinar</span></p>
+                  <p class="wn-form-sub">Grab Your Spot! Seats Are Limited!</p>
+                  <form novalidate>
+                    <div class="wn-form-inner">
+                      <input class="wn-input" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
+                      <input class="wn-input wn-field-gap" name="email" type="email" placeholder="Email" autocomplete="email" required>
+                      <div class="wn-phone-row wn-field-gap">
+                        <select class="wn-input" name="phonecode" aria-label="Country code">
+                          <option value="+1" selected>+1</option>
+                          <option value="+44">+44</option>
+                          <option value="+61">+61</option>
+                          <option value="+971">+971</option>
+                          <option value="+966">+966</option>
+                        </select>
+                        <input class="wn-input" name="phone" type="tel" placeholder="Phone" autocomplete="tel">
+                      </div>
+                      <input class="wn-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+                      <button type="submit" class="wn-btn">Register</button>
+                      <p class="wn-form-msg hidden"></p>
+                    </div>
+                    <label class="promo-sms-optin">
+                      <span class="promo-sms-title"><input type="checkbox" name="promotional_sms_consent" value="yes"><strong>Send me updates on getting funded</strong></span>
+                      <span class="promo-sms-subtitle">Program updates and offers from EcomLinked. Promotional texts. Reply STOP to opt out.</span>
+                    </label>
+                    <label class="sms-note"><input type="checkbox" name="transactional_sms_consent" value="yes"><span>Text me webinar confirmations, reminders, access, and replay updates from EcomLinked. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply. Frequency varies. <a href="terms-of-service.html">Terms</a> &amp; <a href="privacy-policy.html">Privacy</a>.</span></label>
+                  </form>
+                  <div class="wn-success hidden text-center py-10 px-4">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(168,85,247,0.12);"><i class="fa-solid fa-check text-accent-purple-light text-xl"></i></div>
+                    <p class="text-lg font-extrabold text-slate-900 mb-2">You're registered!</p>
+                    <p class="text-sm text-slate-500">Check your email for your personal join link.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="max-w-lg mx-auto mt-5">
+              <div class="flex items-center justify-center gap-2">
+                <div class="w-14 rounded-lg border border-white/[0.06] py-1.5 text-center" style="background: var(--bg-surface);"><p class="text-lg font-extrabold text-accent-purple-light cd-days">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Days</p></div>
+                <div class="w-14 rounded-lg border border-white/[0.06] py-1.5 text-center" style="background: var(--bg-surface);"><p class="text-lg font-extrabold text-accent-purple-light cd-hours">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Hrs</p></div>
+                <div class="w-14 rounded-lg border border-white/[0.06] py-1.5 text-center" style="background: var(--bg-surface);"><p class="text-lg font-extrabold text-accent-purple-light cd-mins">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Min</p></div>
+                <div class="w-14 rounded-lg border border-white/[0.06] py-1.5 text-center" style="background: var(--bg-surface);"><p class="text-lg font-extrabold text-accent-purple-light cd-secs">00</p><p class="text-[8px] text-slate-400 uppercase tracking-widest mt-0.5">Sec</p></div>
+              </div>
+            </div>
+          <p class="text-sm text-slate-400 text-center mt-4">No credit card required</p>
+            <div class="flex items-center justify-center gap-3 mt-4">
+              <div class="flex -space-x-2">
+                <img src="avatars/avatar-1.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+                <img src="avatars/avatar-2.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+                <img src="avatars/avatar-4.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+                <img src="avatars/avatar-5.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+                <div class="w-8 h-8 rounded-full border-2 border-dark bg-accent-purple flex items-center justify-center">
+                  <span class="text-white text-[10px] font-bold counter-num" data-count="400" data-suffix="+">0+</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">Rated 4.5/5 by funded operators</p>
+              </div>
+            </div>
+          </div>
+          <div class="fade-up hidden md:flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+            <button onclick="scrollToForm()" class="btn-glow w-full sm:w-auto px-8 py-4 rounded-xl text-base md:text-lg font-bold text-center">
+              Save My Free Seat <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+            </button>
+            <span class="text-sm text-slate-400">No credit card required</span>
+          </div>
+          <div class="fade-up hidden md:flex items-center gap-3">
+            <div class="flex -space-x-2">
+              <img src="avatars/avatar-1.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+              <img src="avatars/avatar-2.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+              <img src="avatars/avatar-4.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+              <img src="avatars/avatar-5.png" alt="" class="w-8 h-8 rounded-full border-2 border-dark object-cover" loading="lazy" decoding="async">
+              <div class="w-8 h-8 rounded-full border-2 border-dark bg-accent-purple flex items-center justify-center">
+                <span class="text-white text-[10px] font-bold counter-num" data-count="400" data-suffix="+">0+</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Rated 4.5/5 by funded operators</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-2 relative z-10 fade-up hidden md:block">
+          <p class="text-center text-sm text-slate-400 mb-3"><span class="js-webinar-date text-slate-900 font-semibold">TBA</span></p>
+          <div class="relative">
+            <!-- Glow layers behind the embed -->
+            <div class="embed-glow-1" style="top: -40px; left: -30px;"></div>
+            <div class="embed-glow-2" style="bottom: -30px; right: -20px;"></div>
+            <div class="embed-glow-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+            <div class="webinar-wrapper">
+              <div class="wn-form" data-wn-form>
+                  <p class="wn-form-title">Register for <span class="js-webinar-title">Webinar</span></p>
+                  <p class="wn-form-sub">Grab Your Spot! Seats Are Limited!</p>
+                  <form novalidate>
+                    <div class="wn-form-inner">
+                      <input class="wn-input" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
+                      <input class="wn-input wn-field-gap" name="email" type="email" placeholder="Email" autocomplete="email" required>
+                      <div class="wn-phone-row wn-field-gap">
+                        <select class="wn-input" name="phonecode" aria-label="Country code">
+                          <option value="+1" selected>+1</option>
+                          <option value="+44">+44</option>
+                          <option value="+61">+61</option>
+                          <option value="+971">+971</option>
+                          <option value="+966">+966</option>
+                        </select>
+                        <input class="wn-input" name="phone" type="tel" placeholder="Phone" autocomplete="tel">
+                      </div>
+                      <input class="wn-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+                      <button type="submit" class="wn-btn">Register</button>
+                      <p class="wn-form-msg hidden"></p>
+                    </div>
+                    <label class="promo-sms-optin">
+                      <span class="promo-sms-title"><input type="checkbox" name="promotional_sms_consent" value="yes"><strong>Send me updates on getting funded</strong></span>
+                      <span class="promo-sms-subtitle">Program updates and offers from EcomLinked. Promotional texts. Reply STOP to opt out.</span>
+                    </label>
+                    <label class="sms-note"><input type="checkbox" name="transactional_sms_consent" value="yes"><span>Text me webinar confirmations, reminders, access, and replay updates from EcomLinked. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply. Frequency varies. <a href="terms-of-service.html">Terms</a> &amp; <a href="privacy-policy.html">Privacy</a>.</span></label>
+                  </form>
+                  <div class="wn-success hidden text-center py-10 px-4">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(168,85,247,0.12);"><i class="fa-solid fa-check text-accent-purple-light text-xl"></i></div>
+                    <p class="text-lg font-extrabold text-slate-900 mb-2">You're registered!</p>
+                    <p class="text-sm text-slate-500">Check your email for your personal join link.</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Floating countdown badge -->
+          <div class="absolute left-5 -bottom-14 md:left-8 md:-bottom-14 rounded-xl shadow-xl shadow-black/40 border border-white/[0.08] p-2.5 md:p-3 pr-4 md:pr-5 flex items-center gap-2.5 md:gap-3 z-20 max-w-[calc(100%-1.5rem)]" style="background: rgba(17,17,17,0.95); backdrop-filter: blur(12px);">
+            <div class="w-9 h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center" style="background: rgba(168,85,247,0.12);">
+              <i class="fa-solid fa-clock text-accent-purple-light text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[10px] md:text-[11px] text-slate-400 font-medium">Training starts in</p>
+              <p class="text-base md:text-lg font-extrabold text-slate-900 tabular-nums"><span class="cd-days">00</span>d <span class="cd-hours">00</span>h <span class="cd-mins">00</span>m <span class="cd-secs">00</span>s</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-white/[0.06] py-6 md:py-8 overflow-hidden" style="background: var(--bg-surface);" aria-label="Trusted platforms">
+    <div class="max-w-7xl mx-auto px-5">
+      <p class="text-center text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4 md:mb-6">Integrated With The Platforms That Scale Brands</p>
+      <div class="relative overflow-hidden">
+        <div class="flex items-center gap-12 md:gap-16 marquee-track" style="width: max-content;">
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-shopify text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Shopify</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-meta text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Meta Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-tiktok text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">TikTok Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-google text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Google Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-stripe text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Stripe</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-solid fa-chart-line text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Triple Whale</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-shopify text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Shopify</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-meta text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Meta Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-tiktok text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">TikTok Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-google text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Google Ads</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-brands fa-stripe text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Stripe</span></div>
+          <div class="flex items-center gap-2 text-slate-400 hover:text-accent-purple-light transition-colors shrink-0"><i class="fa-solid fa-chart-line text-xl md:text-2xl"></i><span class="font-bold text-xs md:text-sm tracking-tight">Triple Whale</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 lg:py-32 relative" style="background: var(--bg-darkest);" aria-labelledby="problem-heading">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
+      <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">The Real Problem</p>
+      <h2 id="problem-heading" class="fade-up text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-7 md:mb-8">
+        It was never your product. It was your budget.
+      </h2>
+      <div class="fade-up space-y-4 md:space-y-5 text-base md:text-lg text-slate-500 leading-relaxed">
+        <p>To find a winning product, the algorithm needs data, and data costs ad spend.</p>
+        <p>Most beginners start with a few hundred dollars, burn through it before the algorithm even learns, and quit, convinced dropshipping is dead. It isn't. They just ran out of money before it could work.</p>
+        <p>The pros aren't smarter than you. They just kept on testing and learning until they understood it.</p>
+        <p>That's the exact problem we remove. <span class="text-accent-purple-light font-semibold">We fund the testing, so you reach a winner without gambling your own savings.</span></p>
+      </div>
+      <div class="fade-up mt-8 md:mt-10 inline-flex items-center px-4 md:px-5 py-3 rounded-xl border border-amber-500/20" style="background: rgba(245,158,11,0.05);">
+        <p class="text-xs md:text-sm text-slate-500">Ads run on data, not luck. Meta's own guidelines say an ad set needs ~50 sales a week just to exit the "learning phase," and most people run out of money before they ever get there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="py-20 md:py-28 lg:py-32" style="background: var(--bg-dark);" aria-labelledby="solution-heading">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+        <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">What you'll learn</p>
+        <h2 id="solution-heading" class="fade-up text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-4 md:mb-5">Here's what we'll break down on live</h2>
+        <p class="fade-up text-base md:text-lg text-slate-500 leading-relaxed">Most people spend years and thousands learning this the hard way. You'll get it in one hour, for free.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5 md:gap-8">
+        <div class="fade-up card-hover rounded-2xl border border-white/[0.06] p-6 md:p-8 lg:p-10" style="background: var(--bg-surface);">
+          <div class="w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6" style="background: rgba(168,85,247,0.1);"><i class="fa-solid fa-magnifying-glass-chart text-accent-purple text-base md:text-lg"></i></div>
+          <h3 class="text-lg md:text-xl font-extrabold text-slate-900 mb-3">Simulate Before You Spend</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">You'll learn how to simulate a real ad campaign 200,000 times, built on real ad metrics, to read a product's viability, its profit potential, and the exact levers that decide whether it wins. So you launch based on statistics, not a feeling.</p>
+        </div>
+        <div class="fade-up card-hover rounded-2xl border border-white/[0.06] p-6 md:p-8 lg:p-10" style="background: var(--bg-surface);">
+          <div class="w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6" style="background: rgba(168,85,247,0.1);"><i class="fa-solid fa-hand-holding-dollar text-accent-purple text-base md:text-lg"></i></div>
+          <h3 class="text-lg md:text-xl font-extrabold text-slate-900 mb-3">How to get funded</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">Starting a store normally means fronting thousands in product tests, tools, and ad budget, all long before your first sale. You'll learn how our funding model absorbs up to 90% of that, turning the number one reason beginners quit into your biggest advantage.</p>
+        </div>
+        <div class="fade-up card-hover rounded-2xl border border-white/[0.06] p-6 md:p-8 lg:p-10" style="background: var(--bg-surface);">
+          <div class="w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-5 md:mb-6" style="background: rgba(168,85,247,0.1);"><i class="fa-solid fa-wand-magic-sparkles text-accent-purple text-base md:text-lg"></i></div>
+          <h3 class="text-lg md:text-xl font-extrabold text-slate-900 mb-3">The New AI Era</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">Dropshipping isn't what it was two years ago. You'll learn how today's AI tools handle what used to take the pros months, from product research to store builds to ad creative, so a beginner now can move faster than veterans did back then.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 lg:py-32 border-y border-white/[0.06]" style="background: var(--bg-surface);" aria-labelledby="funding-heading">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-center">
+        <div>
+          <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">The Funding Infrastructure</p>
+          <h2 id="funding-heading" class="fade-up text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight mb-5 md:mb-6">Here's how the funding works</h2>
+          <div class="fade-up space-y-4 md:space-y-5 text-sm md:text-base text-slate-500 leading-relaxed">
+            <p>This isn't a loan. It isn't a line of credit. It isn't something you pay back.</p>
+            <p>EcomLinked runs a capital pool built to fund stores like yours. It's structured so a group of funded partners can put far more firepower behind their launches together than any of them ever could alone. That's the leverage, and it's why we can back real products with real budget while everyone else tells you to risk your own savings.</p>
+            <p>Exactly how the pool works, and what your part in it is, is what we break down live on the training.</p>
+            <p>What it means for you is simple: the money that stops most people before they start is handled, so you can focus on building a store instead of scraping together an ad budget.</p>
+          </div>
+          <div class="fade-up mt-7 md:mt-8 grid grid-cols-3 gap-3 md:gap-4">
+            <div class="text-center p-3 md:p-4 rounded-xl border border-white/[0.06]" style="background: var(--bg-dark);">
+              <p class="text-lg md:text-2xl font-extrabold text-slate-900">90%</p>
+              <p class="text-[10px] md:text-xs text-slate-400 mt-1 font-medium">Of your launch funded</p>
+            </div>
+            <div class="text-center p-3 md:p-4 rounded-xl border border-white/[0.06]" style="background: var(--bg-dark);">
+              <p class="text-lg md:text-2xl font-extrabold text-slate-900">Up to 5X</p>
+              <p class="text-[10px] md:text-xs text-slate-400 mt-1 font-medium">Capital leverage</p>
+            </div>
+            <div class="text-center p-3 md:p-4 rounded-xl border border-accent-purple/20" style="background: rgba(168,85,247,0.05);">
+              <p class="text-lg md:text-2xl font-extrabold text-accent-purple-light">$20K+</p>
+              <p class="text-[10px] md:text-xs text-slate-400 mt-1 font-medium">Funded last cohort</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="rounded-2xl border border-white/[0.06] shadow-2xl shadow-black/40 overflow-hidden" style="background: var(--bg-darkest);">
+            <div class="flex items-center justify-between px-4 md:px-5 py-3 md:py-3.5 border-b border-white/[0.06]">
+              <div class="flex items-center gap-2">
+            <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-5 h-5 md:w-6 md:h-6 rounded-md object-contain">
+                <span class="text-slate-400 text-[11px] md:text-xs font-medium">Funding Dashboard</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-slate-400 text-[9px] md:text-[10px] font-medium uppercase tracking-wider">Illustrative example</span>
+              </div>
+            </div>
+            <div class="p-4 md:p-5 space-y-3 md:space-y-4">
+              <div class="grid grid-cols-2 gap-2 md:gap-3">
+                <div class="rounded-lg md:rounded-xl p-3 md:p-4" style="background: var(--bg-surface);">
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mb-1">Allocated Capital</p>
+                  <p class="text-lg md:text-xl font-extrabold text-slate-900 counter-num" data-count="24500" data-prefix="$">$0</p>
+                  <p class="text-accent-purple-light text-[10px] md:text-[11px] font-medium mt-1"><i class="fa-solid fa-arrow-up text-[8px] md:text-[9px] mr-0.5"></i>Active</p>
+                </div>
+                <div class="rounded-lg md:rounded-xl p-3 md:p-4" style="background: var(--bg-surface);">
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mb-1">Ad Spend (30d)</p>
+                  <p class="text-lg md:text-xl font-extrabold text-slate-900 counter-num" data-count="8342" data-prefix="$">$0</p>
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mt-1">49% of allocation</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 md:gap-3">
+                <div class="rounded-lg md:rounded-xl p-3 md:p-4" style="background: var(--bg-surface);">
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mb-1">Revenue (30d)</p>
+                  <p class="text-lg md:text-xl font-extrabold text-slate-900 counter-num" data-count="31208" data-prefix="$">$0</p>
+                  <p class="text-accent-purple-light text-[10px] md:text-[11px] font-medium mt-1"><i class="fa-solid fa-arrow-up text-[8px] md:text-[9px] mr-0.5"></i>+24.3%</p>
+                </div>
+                <div class="rounded-lg md:rounded-xl p-3 md:p-4" style="background: var(--bg-surface);">
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mb-1">ROAS</p>
+                  <p class="text-lg md:text-xl font-extrabold text-accent-purple-light counter-num" data-count="3.74" data-suffix="x" data-decimals="2">0x</p>
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium mt-1">Above threshold</p>
+                </div>
+              </div>
+              <div class="rounded-lg md:rounded-xl p-3 md:p-4" style="background: var(--bg-surface);">
+                <div class="flex items-center justify-between mb-2 md:mb-3">
+                  <p class="text-slate-400 text-[10px] md:text-[11px] font-medium">Daily Revenue (14d)</p>
+                  <p class="text-accent-purple-light text-[10px] md:text-[11px] font-medium">Trending Up</p>
+                </div>
+                <div class="flex items-end gap-1 md:gap-1.5 h-16 md:h-20">
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:35%;opacity:0.4"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:45%;opacity:0.45"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:40%;opacity:0.4"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:55%;opacity:0.5"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:50%;opacity:0.5"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:65%;opacity:0.55"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:60%;opacity:0.55"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:70%;opacity:0.65"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:75%;opacity:0.7"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:68%;opacity:0.65"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:82%;opacity:0.75"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:90%;opacity:0.85"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:85%;opacity:0.8"></div>
+                  <div class="flex-1 shimmer-bar rounded-t-sm" style="height:100%"></div>
+                </div>
+                <div class="flex justify-between mt-2">
+                  <span class="text-slate-400 text-[9px] md:text-[10px]">Jun 1</span>
+                  <span class="text-slate-400 text-[9px] md:text-[10px]">Jun 14</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="py-20 md:py-28 lg:py-32" style="background: var(--bg-dark);" aria-labelledby="results-heading">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+        <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">Partner Results</p>
+        <h2 id="results-heading" class="fade-up text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-4 md:mb-5">Real Stores. Real Funding.</h2>
+        <p class="fade-up text-base md:text-lg text-slate-500 leading-relaxed">These are EcomLinked partners who started with very little capital.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+        <div class="fade-up md:col-span-2 card-hover rounded-2xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <div class="grid md:grid-cols-2">
+            <div class="p-6 md:p-8 lg:p-10">
+              <div class="flex items-center gap-3 mb-4 md:mb-5">
+              <img src="avatars/avatar-3.png" alt="Marcus T." class="w-11 h-11 md:w-12 md:h-12 rounded-full object-cover border-2 border-white/[0.08]" loading="lazy" decoding="async">
+                <div><p class="font-bold text-slate-900 text-sm md:text-base">Marcus T.</p><p class="text-[11px] md:text-xs text-slate-400">Joined March 2026 / Austin, TX</p></div>
+              </div>
+              <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-5 md:mb-6">"I'd already burned through a few grand of my own money on ads with nothing to show for it. What changed here was finally having real backing and a system behind me instead of winging it alone. The team was genuinely great too, always around when I had questions. Took all the fear out of it."</p>
+              <div class="flex gap-5 md:gap-6">
+                <div><p class="text-xl md:text-2xl font-extrabold text-slate-900 counter-num" data-count="3200" data-prefix="$">$0</p><p class="text-[10px] md:text-xs text-slate-400 font-medium">Lost on ads before joining</p></div>
+                <div><p class="text-xl md:text-2xl font-extrabold text-accent-purple counter-num" data-count="4">4</p><p class="text-[10px] md:text-xs text-slate-400 font-medium">Failed products before</p></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center p-6 md:p-8 lg:p-10" style="background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, rgba(168,85,247,0.12) 100%);">
+              <div class="text-center"><p class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-accent-purple-light/90 counter-num" data-count="6" data-suffix="X">6X</p><p class="text-xs md:text-sm font-semibold text-accent-purple-light mt-2">His capital leveraged</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up md:row-span-2 card-hover rounded-2xl border border-white/[0.06] overflow-hidden relative" style="background: var(--bg-darkest);">
+          <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+          <div class="p-6 md:p-8 lg:p-10 h-full flex flex-col relative z-10">
+            <div class="flex items-center gap-3 mb-5 md:mb-6">
+              <img src="avatars/avatar-5.png" alt="Aisha M." class="w-11 h-11 md:w-12 md:h-12 rounded-full object-cover border-2 border-white/[0.08]" loading="lazy" decoding="async">
+              <div><p class="font-bold text-slate-900 text-sm md:text-base">Aisha M.</p><p class="text-[11px] md:text-xs text-slate-400">Joined January 2025 / Toronto, CA</p></div>
+            </div>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-6 md:mb-8 flex-1">"Honestly, I never expected to actually pull this off. I had zero business background and no clue where to start, so I always felt stuck. The staff made it feel doable, and having real backing behind me changed everything. Still kind of surreal to partner with people in this kind of way."</p>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex justify-between items-end border-b border-white/[0.06] pb-2 md:pb-3"><p class="text-[11px] md:text-xs text-slate-400 font-medium">All she started with</p><p class="text-xl md:text-2xl font-extrabold text-slate-900 counter-num" data-count="500" data-prefix="$">$0</p></div>
+              <div class="flex justify-between items-end pb-1"><p class="text-[11px] md:text-xs text-slate-400 font-medium">Rating</p><p class="text-xl md:text-2xl font-extrabold text-accent-purple-light">4.7</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up card-hover rounded-2xl border border-white/[0.06] p-5 md:p-8" style="background: var(--bg-surface);">
+          <div class="flex items-center gap-3 mb-4 md:mb-5">
+            <img src="avatars/avatar-2.png" alt="James R." class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border-2 border-white/[0.08]" loading="lazy" decoding="async">
+            <div><p class="font-bold text-slate-900 text-sm">James R.</p><p class="text-[10px] md:text-[11px] text-slate-400">May 2025 / London, UK</p></div>
+          </div>
+          <div class="flex gap-4 mb-2 md:mb-3"><div><p class="text-lg md:text-xl font-extrabold text-slate-900 counter-num" data-count="1800" data-prefix="$">$0</p><p class="text-[10px] md:text-[11px] text-slate-400">Burned testing solo</p></div><div><p class="text-lg md:text-xl font-extrabold text-accent-purple-light">4.5</p><p class="text-[10px] md:text-[11px] text-slate-400">Rating</p></div></div>
+          <p class="text-xs md:text-sm text-slate-500 leading-relaxed">"I was stuck for ages trying to do this on my own with barely anything to work with. Having actual funds behind me changed everything. I felt like i already knew what i was doing, just needed the money."</p>
+        </div>
+        <div class="fade-up card-hover rounded-2xl border border-white/[0.06] p-5 md:p-8" style="background: var(--bg-surface);">
+          <div class="flex items-center gap-3 mb-4 md:mb-5">
+            <img src="avatars/avatar-1.png" alt="Sarah K." class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border-2 border-white/[0.08]" loading="lazy" decoding="async">
+            <div><p class="font-bold text-slate-900 text-sm">Sarah K.</p><p class="text-[10px] md:text-[11px] text-slate-400">Feb 2026 / Miami, FL</p></div>
+          </div>
+          <div class="flex gap-4 mb-2 md:mb-3"><div><p class="text-lg md:text-xl font-extrabold text-slate-900 counter-num" data-count="2400" data-prefix="$">$0</p><p class="text-[10px] md:text-[11px] text-slate-400">Wasted before joining</p></div><div><p class="text-lg md:text-xl font-extrabold text-accent-purple-light">5.0</p><p class="text-[10px] md:text-[11px] text-slate-400">Rating</p></div></div>
+          <p class="text-xs md:text-sm text-slate-500 leading-relaxed">"I could finally test and try things without that constant panic I used to feel going solo. Having a team and funding made all the difference. They were great the whole way through."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ecommerce-paths" class="py-20 md:py-28 lg:py-32 relative overflow-hidden" style="background: var(--bg-darkest);" aria-labelledby="ecommerce-paths-heading">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="absolute top-0 left-0 w-72 h-72 rounded-full blur-[120px] pointer-events-none" style="background: rgba(168,85,247,0.08);"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style="background: rgba(124,58,237,0.05);"></div>
+    <div class="max-w-7xl mx-auto px-5 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <h2 id="ecommerce-paths-heading" class="fade-up text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-4 md:mb-5">There are two ways to start ecommerce</h2>
+        <p class="fade-up text-base md:text-lg text-slate-500 leading-relaxed">One drains your savings. The other puts real capital behind you.</p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 top-6 bottom-6 w-px bg-white/[0.08]"></div>
+        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center w-11 h-11 rounded-full border border-accent-purple/30 bg-[#1b1029] shadow-[0_0_0_8px_rgba(12,8,20,0.95)]">
+          <span class="text-[11px] font-black tracking-[0.25em] text-accent-purple-light">VS</span>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 md:gap-6 items-stretch">
+          <div class="fade-up rounded-2xl border border-white/[0.06] overflow-hidden relative" style="background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%);">
+            <div class="p-6 md:p-8 lg:p-10">
+              <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-500 mb-6 md:mb-8">On your own.</h3>
+              <div class="space-y-4 md:space-y-5">
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-xmark text-[10px] text-slate-500"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-400 leading-relaxed">You drain your savings testing products.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-xmark text-[10px] text-slate-500"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-400 leading-relaxed">You guess what to sell and hope it hits.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-xmark text-[10px] text-slate-500"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-400 leading-relaxed">You run out of budget before the algorithm learns.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-white/[0.06] bg-white/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-xmark text-[10px] text-slate-500"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-400 leading-relaxed">You quit, sure you just weren't built for this.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:hidden flex items-center gap-3 py-1">
+            <div class="h-px flex-1 bg-white/[0.08]"></div>
+            <div class="w-11 h-11 shrink-0 rounded-full border border-accent-purple/30 bg-[#1b1029] flex items-center justify-center shadow-[0_0_0_8px_rgba(12,8,20,0.95)]">
+              <span class="text-[11px] font-black tracking-[0.25em] text-accent-purple-light">VS</span>
+            </div>
+            <div class="h-px flex-1 bg-white/[0.08]"></div>
+          </div>
+
+          <div class="fade-up md:-translate-y-1 rounded-2xl border border-accent-purple/20 overflow-hidden relative shadow-[0_24px_60px_rgba(168,85,247,0.12)]" style="background: linear-gradient(180deg, rgba(168,85,247,0.09) 0%, rgba(17,17,17,0.98) 100%);">
+            <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full blur-[90px] pointer-events-none" style="background: rgba(168,85,247,0.12);"></div>
+            <div class="p-6 md:p-8 lg:p-10 relative z-10">
+              <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-6 md:mb-8">With EcomLinked.</h3>
+              <div class="space-y-4 md:space-y-5">
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-accent-purple/20 bg-accent-purple/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check text-[10px] text-accent-purple-light"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-900 leading-relaxed">You launch with real backing behind you.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-accent-purple/20 bg-accent-purple/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check text-[10px] text-accent-purple-light"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-900 leading-relaxed">You simulate a product's odds before you spend.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-accent-purple/20 bg-accent-purple/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check text-[10px] text-accent-purple-light"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-900 leading-relaxed">You get funded ad budget and a team in your corner.</p>
+                </div>
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="w-7 h-7 rounded-full border border-accent-purple/20 bg-accent-purple/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check text-[10px] text-accent-purple-light"></i>
+                  </div>
+                  <p class="text-sm md:text-base text-slate-900 leading-relaxed">You reach your first sale, then scale from there.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 md:mt-10 text-center">
+          <p class="fade-up text-sm md:text-lg font-bold text-accent-purple-light">Same goal. Very different odds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="py-20 md:py-28 lg:py-32 relative overflow-hidden" style="background: var(--bg-darkest);">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full blur-[100px] pointer-events-none" style="background: rgba(168,85,247,0.12);"></div>
+    <div class="absolute bottom-0 right-0 w-60 h-60 rounded-full blur-[80px] pointer-events-none" style="background: rgba(124,58,237,0.08);"></div>
+    <div class="max-w-lg mx-auto px-5 relative z-10" id="formWrapper">
+      <div class="text-center mb-8">
+        <div class="fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-purple/20 mb-5" style="background: rgba(168,85,247,0.08);">
+          <span class="w-2 h-2 rounded-full bg-accent-purple-light animate-pulse"></span>
+          <span class="text-[11px] md:text-xs font-semibold text-accent-purple-light tracking-wide uppercase">Free Registration</span>
+        </div>
+        <h2 class="fade-up text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Save Your Seat</h2>
+        <p class="fade-up text-sm md:text-base text-slate-500">Join the next cohort</p>
+      </div>
+      <div class="fade-up mb-7">
+        <p class="text-center text-sm text-slate-400 mb-3">Live training starts <span class="js-webinar-date text-slate-900 font-semibold">TBA</span></p>
+        <div class="flex items-center justify-center gap-2 md:gap-3">
+          <div class="w-16 md:w-20 rounded-xl border border-white/[0.06] py-2 md:py-3 text-center" style="background: var(--bg-surface);"><p class="text-2xl md:text-3xl font-extrabold text-accent-purple-light cd-days">00</p><p class="text-[9px] md:text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Days</p></div>
+          <div class="w-16 md:w-20 rounded-xl border border-white/[0.06] py-2 md:py-3 text-center" style="background: var(--bg-surface);"><p class="text-2xl md:text-3xl font-extrabold text-accent-purple-light cd-hours">00</p><p class="text-[9px] md:text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Hrs</p></div>
+          <div class="w-16 md:w-20 rounded-xl border border-white/[0.06] py-2 md:py-3 text-center" style="background: var(--bg-surface);"><p class="text-2xl md:text-3xl font-extrabold text-accent-purple-light cd-mins">00</p><p class="text-[9px] md:text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Min</p></div>
+          <div class="w-16 md:w-20 rounded-xl border border-white/[0.06] py-2 md:py-3 text-center" style="background: var(--bg-surface);"><p class="text-2xl md:text-3xl font-extrabold text-accent-purple-light cd-secs">00</p><p class="text-[9px] md:text-[10px] text-slate-400 uppercase tracking-widest mt-0.5">Sec</p></div>
+        </div>
+      </div>
+      <div class="fade-up relative -mx-3 md:mx-0">
+        <div class="embed-glow-1" style="top: -40px; left: -30px;"></div>
+        <div class="embed-glow-2" style="bottom: -30px; right: -20px;"></div>
+        <div class="embed-glow-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        <div class="webinar-wrapper">
+          <div class="wn-form" data-wn-form>
+                  <p class="wn-form-title">Register for <span class="js-webinar-title">Webinar</span></p>
+                  <p class="wn-form-sub">Grab Your Spot! Seats Are Limited!</p>
+                  <form novalidate>
+                    <div class="wn-form-inner">
+                      <input class="wn-input" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
+                      <input class="wn-input wn-field-gap" name="email" type="email" placeholder="Email" autocomplete="email" required>
+                      <div class="wn-phone-row wn-field-gap">
+                        <select class="wn-input" name="phonecode" aria-label="Country code">
+                          <option value="+1" selected>+1</option>
+                          <option value="+44">+44</option>
+                          <option value="+61">+61</option>
+                          <option value="+971">+971</option>
+                          <option value="+966">+966</option>
+                        </select>
+                        <input class="wn-input" name="phone" type="tel" placeholder="Phone" autocomplete="tel">
+                      </div>
+                      <input class="wn-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+                      <button type="submit" class="wn-btn">Register</button>
+                      <p class="wn-form-msg hidden"></p>
+                    </div>
+                    <label class="promo-sms-optin">
+                      <span class="promo-sms-title"><input type="checkbox" name="promotional_sms_consent" value="yes"><strong>Send me updates on getting funded</strong></span>
+                      <span class="promo-sms-subtitle">Program updates and offers from EcomLinked. Promotional texts. Reply STOP to opt out.</span>
+                    </label>
+                    <label class="sms-note"><input type="checkbox" name="transactional_sms_consent" value="yes"><span>Text me webinar confirmations, reminders, access, and replay updates from EcomLinked. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply. Frequency varies. <a href="terms-of-service.html">Terms</a> &amp; <a href="privacy-policy.html">Privacy</a>.</span></label>
+                  </form>
+                  <div class="wn-success hidden text-center py-10 px-4">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: rgba(168,85,247,0.12);"><i class="fa-solid fa-check text-accent-purple-light text-xl"></i></div>
+                    <p class="text-lg font-extrabold text-slate-900 mb-2">You're registered!</p>
+                    <p class="text-sm text-slate-500">Check your email for your personal join link.</p>
+                  </div>
+                </div>
+        </div>
+      </div>
+      <div class="fade-up flex items-center justify-center gap-5 mt-5 text-[11px] md:text-xs text-slate-400">
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-accent-purple-light text-[10px]"></i> 100% Free</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-accent-purple-light text-[10px]"></i> No Spam</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-accent-purple-light text-[10px]"></i> 30 Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 md:py-28 lg:py-32" style="background: var(--bg-dark);" aria-labelledby="faq-heading">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">Common Questions</p>
+        <h2 id="faq-heading" class="fade-up text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">FAQs</h2>
+      </div>
+      <div class="fade-up space-y-3" id="faqContainer">
+        <details class="faq-item rounded-xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <summary class="faq-trigger w-full flex items-center justify-between p-4 md:p-5 lg:p-6 text-left">
+            <span class="font-bold text-slate-900 text-sm md:text-base pr-4">Is this a scam? How do you actually fund this?</span>
+            <i class="fa-solid fa-plus faq-icon text-slate-400 shrink-0 text-sm"></i>
+          </summary>
+          <div class="faq-answer px-4 md:px-5 lg:px-6">
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed pb-4 md:pb-5">EcomLinked generates revenue through a program fee and a performance-based profit share on stores we help scale. Our capital pool comes from company reserves that are topped off with membership fees. Our incentives are fully aligned with your profit. We're a registered business with verifiable partners (Shopify, Meta).</p>
+          </div>
+        </details>
+        <details class="faq-item rounded-xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <summary class="faq-trigger w-full flex items-center justify-between p-4 md:p-5 lg:p-6 text-left">
+            <span class="font-bold text-slate-900 text-sm md:text-base pr-4">Do I need prior e-commerce experience?</span>
+            <i class="fa-solid fa-plus faq-icon text-slate-400 shrink-0 text-sm"></i>
+          </summary>
+          <div class="faq-answer px-4 md:px-5 lg:px-6">
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed pb-4 md:pb-5">No. The majority of our funded partners started with zero e-commerce knowledge. Our 8-week curriculum is designed for complete beginners. What matters more than experience is your willingness to follow the system, put in the hours, and stay coachable.</p>
+          </div>
+        </details>
+        <details class="faq-item rounded-xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <summary class="faq-trigger w-full flex items-center justify-between p-4 md:p-5 lg:p-6 text-left">
+            <span class="font-bold text-slate-900 text-sm md:text-base pr-4">How much time do I need to commit weekly?</span>
+            <i class="fa-solid fa-plus faq-icon text-slate-400 shrink-0 text-sm"></i>
+          </summary>
+          <div class="faq-answer px-4 md:px-5 lg:px-6">
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed pb-4 md:pb-5">During the 8-week build phase, expect to invest 10-15 hours per week. This includes product research, store setup, creative creation, and ad management learning. Once your store is live and funded, you can manage it in 5-10 hours per week with our mentorship support.</p>
+          </div>
+        </details>
+        <details class="faq-item rounded-xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <summary class="faq-trigger w-full flex items-center justify-between p-4 md:p-5 lg:p-6 text-left">
+            <span class="font-bold text-slate-900 text-sm md:text-base pr-4">What happens if my ads don't work? Do I owe the ad spend back?</span>
+            <i class="fa-solid fa-plus faq-icon text-slate-400 shrink-0 text-sm"></i>
+          </summary>
+          <div class="faq-answer px-4 md:px-5 lg:px-6">
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed pb-4 md:pb-5">No. The ad budget isn't a loan, so there's nothing to repay. If a campaign doesn't work, we pause it, learn from it, and pivot. And if a store just doesn't pan out after real effort, we move on to the next,</p>
+          </div>
+        </details>
+        <details class="faq-item rounded-xl border border-white/[0.06] overflow-hidden" style="background: var(--bg-surface);">
+          <summary class="faq-trigger w-full flex items-center justify-between p-4 md:p-5 lg:p-6 text-left">
+            <span class="font-bold text-slate-900 text-sm md:text-base pr-4">How quickly can I get funded after joining?</span>
+            <i class="fa-solid fa-plus faq-icon text-slate-400 shrink-0 text-sm"></i>
+          </summary>
+          <div class="faq-answer px-4 md:px-5 lg:px-6">
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed pb-4 md:pb-5">Fast. Once you're accepted into a cohort, your funding usually lands within 2 to 3 days. No waiting months to prove yourself first. We back you upfront so you can start testing right away.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 relative overflow-hidden" style="background: var(--bg-darkest);">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none" style="background: rgba(168,85,247,0.1);"></div>
+    <div class="max-w-2xl mx-auto px-5 text-center relative z-10">
+      <p class="fade-up text-accent-purple-light text-xs md:text-sm font-bold uppercase tracking-widest mb-4">Spots Fill Fast</p>
+      <h2 class="fade-up text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight mb-5 md:mb-6">Don't Wait Until Spots Are Gone</h2>
+      <p class="fade-up text-base md:text-lg text-slate-500 leading-relaxed mb-8 md:mb-10">These webinar funding cohorts happen twice a year, once every 6 months.</p>
+      <div class="fade-up">
+      <button onclick="scrollToForm()" class="btn-glow w-full sm:w-auto px-10 py-4 rounded-xl text-base md:text-lg font-bold">Save My Free Seat <i class="fa-solid fa-arrow-right ml-2 text-sm"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/[0.06] py-10 md:py-14" style="background: var(--bg-darkest);">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-8 mb-10">
+        <div class="col-span-2">
+          <a href="#" class="flex items-center gap-2 mb-4">
+        <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-7 h-7 rounded-lg object-contain">
+            <span class="font-extrabold text-base tracking-tight text-slate-900">EcomLinked</span>
+          </a>
+          <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-sm mb-5">EcomLinked is a capital pooling and distribution platform that connects pooled capital with qualified e-commerce entrepreneurs through a structured funding model.</p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.instagram.com/ecomlinked/" class="w-9 h-9 rounded-lg border border-white/[0.06] flex items-center justify-center text-slate-400 hover:text-accent-purple hover:border-accent-purple/30 transition-colors" style="background: var(--bg-surface);" aria-label="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
+            <a href="https://www.tiktok.com/@ecomlinked_" class="w-9 h-9 rounded-lg border border-white/[0.06] flex items-center justify-center text-slate-400 hover:text-accent-purple hover:border-accent-purple/30 transition-colors" style="background: var(--bg-surface);" aria-label="TikTok"><i class="fa-brands fa-tiktok text-sm"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Program</p>
+          <ul class="space-y-2.5">
+            <li><a href="#how-it-works" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">How It Works</a></li>
+            <li><a href="#results" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Partner Results</a></li>
+            <li><a href="#faq" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">FAQ</a></li>
+            <li><a href="#" onclick="scrollToForm(); return false;" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Register Free</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Legal</p>
+          <ul class="space-y-2.5">
+            <li><a href="privacy-policy.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Terms of Service</a></li>
+            <li><a href="earnings-disclaimer.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Earnings Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/[0.06] pt-6 md:pt-8">
+        <p class="text-[10px] md:text-xs text-slate-400 text-center md:text-left">&copy; 2025 EcomLinked. All rights reserved. Earnings shown are not typical and vary based on individual effort, market conditions, and other factors.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-white/[0.06] px-4 py-3" id="mobileCta" style="background: rgba(5,5,5,0.95); backdrop-filter: blur(16px);">
+    <button onclick="scrollToForm()" class="btn-glow w-full py-4 rounded-xl text-base font-bold flex items-center justify-center gap-2">
+      <i class="fa-solid fa-bolt text-sm"></i> Save My Free Seat
+    </button>
+  </div>
+
+  <div class="toast px-5 py-3 rounded-xl shadow-xl text-sm font-medium flex items-center gap-2 border border-white/[0.08]" id="toast" style="background: var(--bg-surface);">
+    <i class="fa-solid fa-circle-check text-accent-purple-light"></i>
+    <span id="toastMsg" class="text-slate-900">Success!</span>
+  </div>
+
+  <script>
+    /* EDIT YOUR WEBINAR DATE AND TIME HERE. Use -04:00 for EST in summer, -05:00 in winter. */
+    var WEBINAR_DATE = new Date("2026-07-16T19:00:00-04:00");
+    (function(){
+      var dateStr = WEBINAR_DATE.toLocaleDateString('en-US', { timeZone:'America/New_York', weekday:'long', month:'long', day:'numeric' }) + ' at ' + WEBINAR_DATE.toLocaleTimeString('en-US', { timeZone:'America/New_York', hour:'numeric', minute:'2-digit' }) + ' EST';
+      document.querySelectorAll('.js-webinar-date').forEach(function(el){ el.textContent = dateStr; });
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick(){
+        var diff = Math.max(0, WEBINAR_DATE - new Date());
+        var d = Math.floor(diff/86400000); diff -= d*86400000;
+        var h = Math.floor(diff/3600000); diff -= h*3600000;
+        var m = Math.floor(diff/60000); diff -= m*60000;
+        var sec = Math.floor(diff/1000);
+        document.querySelectorAll('.cd-days').forEach(function(el){ el.textContent = pad(d); });
+        document.querySelectorAll('.cd-hours').forEach(function(el){ el.textContent = pad(h); });
+        document.querySelectorAll('.cd-mins').forEach(function(el){ el.textContent = pad(m); });
+        document.querySelectorAll('.cd-secs').forEach(function(el){ el.textContent = pad(sec); });
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+    /* Reveal-on-scroll and count-up in plain JS, no external library, so it is instant and reliable */
+    (function(){
+      var fades = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) {
+        fades.forEach(function(el){ el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+        fades.forEach(function(el){ io.observe(el); });
+      }
+      function countUp(el){
+        var target = parseFloat(el.dataset.count);
+        if (isNaN(target)) return;
+        var prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '', decimals = parseInt(el.dataset.decimals || '0');
+        function render(v){ el.textContent = prefix + (decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString()) + suffix; }
+        if (target === 0){ render(0); return; }
+        var dur = 1700, start = null;
+        function step(ts){
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          render(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step); else render(target);
+        }
+        requestAnimationFrame(step);
+      }
+      var nums = document.querySelectorAll('[data-count]');
+      if (!('IntersectionObserver' in window)) { nums.forEach(countUp); }
+      else {
+        var io2 = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if (e.isIntersecting){ countUp(e.target); io2.unobserve(e.target); } });
+        }, { threshold: 0.35 });
+        nums.forEach(function(el){ io2.observe(el); });
+      }
+    })();
+  </script>
+
+  <script>
+    function scrollToForm() {
+      var el = window.innerWidth < 768 ? document.getElementById('heroRegister') : document.getElementById('register');
+      if (!el) el = document.getElementById('register') || document.getElementById('heroRegister');
+      if (!el) return;
+      var headerH = 56;
+      var mobileCtaH = window.innerWidth < 768 ? 72 : 0;
+      var y = el.getBoundingClientRect().top + window.pageYOffset - headerH - 16 - mobileCtaH;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setTimeout(function() {
+        var wrapper = el.querySelector('.webinar-wrapper');
+        if (wrapper) {
+          wrapper.classList.add('form-highlight');
+          setTimeout(function() { wrapper.classList.remove('form-highlight'); }, 1700);
+        }
+      }, 600);
+    }
+
+    var header = document.getElementById('siteHeader');
+    var lastScrollY = 0;
+    var ticking = false;
+
+    function updateHeader() {
+      var currentY = window.scrollY;
+      header.classList.toggle('scrolled', currentY > 24);
+      lastScrollY = currentY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
+    }, { passive: true });
+
+    var mobileCta = document.getElementById('mobileCta');
+    function updateMobileCta() {
+      mobileCta.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
+    }
+    window.addEventListener('scroll', updateMobileCta, { passive: true });
+    updateMobileCta();
+
+    /* ---- Native registration forms (Google Apps Script -> WebinarNinja/Telnyx) ---- */
+    var REG_CONFIG = window.ECOMLINKED_FORM_CONFIG || {};
+    var FORM_MODE = String(REG_CONFIG.FORM_MODE || 'test').toLowerCase();
+    var WN_FORM_ENDPOINT = REG_CONFIG.GOOGLE_SCRIPT_ENDPOINT || '';
+    var WN_FALLBACK_URL = REG_CONFIG.WEBINAR_FALLBACK_URL || 'https://my.webinarninja.com/embedding-form/10555';
+    var WN_WEBINAR_TITLE = REG_CONFIG.WEBINAR_TITLE || 'Webinar';
+    var WN_THANK_YOU_URL = REG_CONFIG.THANK_YOU_URL || 'thank-you.html';
+
+    document.querySelectorAll('.js-webinar-title').forEach(function (el) { el.textContent = WN_WEBINAR_TITLE; });
+
+    document.querySelectorAll('[data-wn-form] form').forEach(function (form) {
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var msg = form.querySelector('.wn-form-msg');
+        var fullName = form.querySelector('[name="name"]').value.trim();
+        var email = form.querySelector('[name="email"]').value.trim();
+        var code = form.querySelector('[name="phonecode"]').value;
+        var phoneNum = form.querySelector('[name="phone"]').value.trim();
+        var hp = form.querySelector('[name="website"]').value;
+        var promotionalSmsConsent = form.querySelector('[name="promotional_sms_consent"]');
+        var transactionalSmsConsent = form.querySelector('[name="transactional_sms_consent"]');
+
+        if (!fullName || !/.+@.+\..+/.test(email)) {
+          msg.textContent = 'Please enter your name and a valid email.';
+          msg.classList.remove('hidden');
+          return;
+        }
+        msg.classList.add('hidden');
+        btn.disabled = true;
+        var original = btn.innerHTML;
+        btn.innerHTML = 'Registering...';
+
+        var fullPhone = phoneNum ? (code + ' ' + phoneNum) : '';
+
+        var payload = new URLSearchParams({
+          name: fullName,
+          email: email,
+          phone: fullPhone,
+          promotional_sms_consent: promotionalSmsConsent && promotionalSmsConsent.checked ? 'yes' : 'no',
+          transactional_sms_consent: transactionalSmsConsent && transactionalSmsConsent.checked ? 'yes' : 'no',
+          website: hp,
+          form_mode: FORM_MODE
+        });
+
+        function showSuccessOrRedirect() {
+          if (WN_THANK_YOU_URL) { window.location.href = WN_THANK_YOU_URL; return; }
+          var box = form.closest('[data-wn-form]');
+          form.classList.add('hidden');
+          var ok = box.querySelector('.wn-success');
+          if (ok) ok.classList.remove('hidden');
+        }
+
+        if (FORM_MODE === 'test') {
+          var continued = false;
+          function continueOnce() {
+            if (continued) return;
+            continued = true;
+            showSuccessOrRedirect();
+          }
+          if (WN_FORM_ENDPOINT && WN_FORM_ENDPOINT.indexOf('PASTE_') !== 0) {
+            fetch(WN_FORM_ENDPOINT, { method: 'POST', body: payload, keepalive: true })
+              .catch(function () {})
+              .then(continueOnce);
+            setTimeout(continueOnce, 1200);
+          } else {
+            continueOnce();
+          }
+          return;
+        }
+
+        fetch(WN_FORM_ENDPOINT, {
+          method: 'POST',
+          body: payload
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data && data.ok) {
+              showSuccessOrRedirect();
+            } else {
+              throw new Error((data && data.error) || 'failed');
+            }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.innerHTML = original;
+            msg.innerHTML = 'Something went wrong. Please try again, or <a class="underline" style="color: var(--accent-purple-light);" href="' + WN_FALLBACK_URL + '" target="_blank" rel="noopener">register here</a>.';
+            msg.classList.remove('hidden');
+          });
+      });
+    });
+
+  </script>
+</body>
+</html>

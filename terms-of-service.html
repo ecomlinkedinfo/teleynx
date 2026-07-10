@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | EcomLinked</title>
+  <meta name="description" content="Terms of Service for EcomLinked. Review the rules for using our webinar, website, and e-commerce funding and education programs.">
+  <link rel="icon" type="image/png" href="ecomlinked-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'sans-serif'] },
+          colors: {
+            dark: { DEFAULT: '#050505', secondary: '#0A0A0A', tertiary: '#1A1A1A' },
+            surface: { DEFAULT: '#111111', secondary: '#161616', tertiary: '#1E1E1E' },
+            slate: { 900: '#F5F5F5', 500: '#A1A1AA', 400: '#71717A', 200: '#27272A', 100: '#1C1C1C' },
+            accent: { purple: '#A855F7', 'purple-hover': '#9333EA', 'purple-light': '#C084FC', 'purple-dark': '#7C3AED' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-darkest: #050505;
+      --bg-dark: #0A0A0A;
+      --bg-surface: #111111;
+      --bg-elevated: #161616;
+      --text-primary: #F5F5F5;
+      --text-secondary: #A1A1AA;
+      --text-muted: #71717A;
+      --accent-purple: #A855F7;
+      --accent-purple-hover: #9333EA;
+      --accent-purple-light: #C084FC;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-medium: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(168,85,247,0.12), transparent 34%),
+        radial-gradient(circle at 80% 0%, rgba(124,58,237,0.08), transparent 22%),
+        var(--bg-dark);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+    .js .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2,0.7,0.2,1), transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+    .fade-up.in { opacity: 1; transform: none; }
+    .dot-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(168,85,247,0.04) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .soft-card {
+      background: linear-gradient(180deg, rgba(17,17,17,0.96) 0%, rgba(10,10,10,0.98) 100%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+      backdrop-filter: blur(10px);
+    }
+    .soft-card-2 {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(168,85,247,0.25), 0 0 24px rgba(168,85,247,0.12);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(168,85,247,0.35), 0 0 60px rgba(168,85,247,0.18);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(192,132,252,0.3);
+      background: rgba(168,85,247,0.08);
+    }
+    *:focus-visible {
+      outline: 2px solid var(--accent-purple);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-40 border-b border-white/[0.06]" style="background: rgba(5,5,5,0.86); backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto px-5 h-16 md:h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 md:gap-3" aria-label="EcomLinked Home">
+        <img src="ecomlinked-logo.png" onerror="this.onerror=null;this.style.display='none'" alt="EcomLinked" class="w-8 h-8 rounded-lg object-contain">
+        <span class="font-extrabold text-base md:text-lg tracking-tight text-slate-900">EcomLinked</span>
+      </a>
+      <a href="index.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg btn-secondary text-sm font-semibold">
+        <i class="fa-solid fa-arrow-left text-xs"></i> Back to webinar
+      </a>
+    </div>
+  </header>
+
+  <main class="relative overflow-hidden">
+    <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+    <div class="absolute top-12 left-8 w-72 h-72 rounded-full blur-[120px] pointer-events-none" style="background: rgba(168,85,247,0.10);"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full blur-[140px] pointer-events-none" style="background: rgba(124,58,237,0.06);"></div>
+
+    <section class="py-14 md:py-20 relative z-10">
+      <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center mb-8 md:mb-10">
+          <div class="fade-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-purple/20 mb-5" style="background: rgba(168,85,247,0.08);">
+            <i class="fa-solid fa-file-contract text-accent-purple-light text-sm"></i>
+            <span class="text-[11px] md:text-xs font-semibold text-accent-purple-light tracking-wide uppercase">Terms of Service</span>
+          </div>
+          <h1 class="fade-up text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">Terms for using our site and program</h1>
+          <p class="fade-up mt-4 text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
+            These terms apply to EcomLinked and cover our webinar, website, communications, and the e-commerce education and funding-related program we offer.
+          </p>
+          <p class="fade-up mt-3 text-sm text-slate-400">Effective date: July 2, 2026</p>
+        </div>
+
+        <div class="grid gap-5 md:gap-6">
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Acceptance of terms</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              By accessing this site, registering for the webinar, or using any related service, you agree to these terms and to any posted updates. If you do not agree, do not use the site or services.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Description of the service</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We provide a free training webinar and, for selected participants, a paid, selective e-commerce education and funding-related program. The program is designed to provide education, operational support, and access to business funding opportunities for qualified participants.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Eligibility</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              You must be at least 18 years old and able to enter a binding agreement to use the site or participate in the program. By using the site, you represent that you meet these requirements.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">No guarantee of results</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Education, business funding, and marketing support do not guarantee sales, profits, account approval, funding approval, or any specific result. Outcomes depend on many factors, including market conditions, your actions, and the quality of your business execution.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">User responsibilities</h2>
+            <ul class="space-y-3 text-sm md:text-base text-slate-500 leading-relaxed">
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Provide accurate information when you register or apply.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Use the site and services only for lawful purposes.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Do not misuse, copy, scrape, or attempt to disrupt the site, content, or systems.</span></li>
+              <li class="flex items-start gap-3"><i class="fa-solid fa-circle text-[6px] text-accent-purple-light mt-2"></i><span>Keep your account, phone, and email details current so we can reach you with important updates.</span></li>
+            </ul>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Email and SMS communications</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              By registering for the webinar, you agree that EcomLinked may send you email communications related to your registration, webinar access, reminders, replay availability, support, and program information.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed mb-4">
+              Providing your phone number is optional. If you provide your phone number and submit the registration form, you consent to receive transactional text messages from EcomLinked related to the webinar, including confirmation, reminders, access updates, support, and replay availability. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, and reply HELP for help.
+            </p>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Marketing or promotional text messages are separate from transactional webinar messages. EcomLinked may send promotional SMS only where you have separately provided promotional SMS consent, such as by checking an optional, unchecked promotional SMS consent box.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Funding and business decisions</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              EcomLinked is not a bank, lender, financial advisor, legal advisor, tax advisor, or investment advisor. Any funding-related education, examples, or program materials are provided for general business education and do not guarantee approval, financing, credit terms, revenue, profit, or any specific business result. You are responsible for your own business decisions and should consult qualified professionals when needed.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Intellectual property</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              All site content, design elements, logos, training materials, video, text, graphics, and other materials are owned by EcomLinked or our licensors and are protected by intellectual property laws. You may not reproduce or distribute them without permission.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Disclaimers</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              The site and services are provided on an "as is" and "as available" basis. We make no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, noninfringement, or uninterrupted availability.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Limitation of liability</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              To the fullest extent allowed by law, EcomLinked will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost data, or business interruption arising from your use of the site or services.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Indemnification</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              You agree to defend, indemnify, and hold harmless EcomLinked and its owners, employees, contractors, and partners from claims, losses, liabilities, damages, and expenses arising from your use of the site, your breach of these terms, or your violation of law or third-party rights.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Governing law</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              These terms are governed by the laws of Delaware, without regard to conflict of law principles, unless local law requires otherwise.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Changes to these terms</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              We may revise these terms at any time by posting an updated version on this page. Your continued use of the site or services after changes become effective means you accept the updated terms.
+            </p>
+          </section>
+
+          <section class="fade-up soft-card-2 rounded-3xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">Contact</h2>
+            <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+              Questions about these terms can be sent to <a href="mailto:team@ecomlinkedfunding.com" class="text-accent-purple-light font-semibold">team@ecomlinkedfunding.com</a>.
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/[0.06] py-10 md:py-12 relative z-10" style="background: var(--bg-darkest);">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-2xl">EcomLinked legal pages.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="privacy-policy.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Privacy Policy</a>
+        <a href="earnings-disclaimer.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Earnings Disclaimer</a>
+        <a href="index.html" class="text-xs md:text-sm text-slate-400 hover:text-accent-purple-light transition-colors">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('DOMContentLoaded', function() {
+      const fades = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) {
+        fades.forEach(function(el) { el.classList.add('in'); });
+        return;
+      }
+      const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      fades.forEach(function(el) { io.observe(el); });
+    });
+  </script>
+</body>
+</html>
